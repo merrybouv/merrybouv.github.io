@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meredith Bouvier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #fff0f3;
+      --ink:     #1c1a1a;
+      --mid:     #4a4040;
+      --light:   #9e8a8d;
+      --accent:  #d63864;
+      --rule:    #f0d0d8;
+      --link:    #6b3fa0;
+      --card-bg: #ffffff;
+      --serif:   'Fraunces', Georgia, serif;
+      --sans:    'Nunito', system-ui, sans-serif;
+    }
+
+    html { font-size: 17px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      line-height: 1.75;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Layout ── */
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    /* ── Header / Bio ── */
+    .site-header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--rule);
+    }
+
+    .site-header .placeholder-photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      text-align: center;
+      border: 2px dashed var(--light);
+      line-height: 1.4;
+    }
+
+    .header-text h1 {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.15rem;
+    }
+
+    .header-text .tagline {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .header-text p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1rem;
+    }
+
+    nav a {
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Sections ── */
+    section { margin-bottom: 4rem; }
+
+    section h2 {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Bio section ── */
+    #about p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    #about p:last-child { margin-bottom: 0; }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; }
+
+    .pub-list li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+    .pub-list li:first-child { border-top: 1px solid var(--rule); }
+
+    .pub-list .year {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--light);
+      display: inline-block;
+      min-width: 2.8rem;
+      margin-right: 0.25rem;
+    }
+
+    .pub-list .title {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .pub-list .venue {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    .pub-list .status {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(214, 56, 100, 0.08);
+      border: 1px solid rgba(214, 56, 100, 0.25);
+      border-radius: 2px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Project cards ── */
+    .project-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      background: #f8f0ff;
+    }
+
+    .project-card:last-child { margin-bottom: 0; }
+
+    .project-card .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .project-card h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .project-card .project-tag {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(214, 56, 100, 0.08);
+      border: 1px solid rgba(214, 56, 100, 0.2);
+      border-radius: 2px;
+      padding: 0.1rem 0.4rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 0.6rem;
+    }
+    .project-card p:last-child { margin-bottom: 0; }
+
+    .project-card .tool-list {
+      list-style: none;
+      margin-top: 0.75rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .project-card .tool-list li {
+      font-size: 0.875rem;
+      color: var(--mid);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .project-card .tool-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--sans);
+    }
+
+    .project-card .tool-list strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .project-collab {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--light);
+      margin-top: 0.75rem;
+    }
+
+    /* ── Research showcase ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 520px) { .research-grid { grid-template-columns: 1fr; } }
+
+    .research-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.25rem;
+      background: #f8f0ff;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .research-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(214,56,100,0.08);
+      color: inherit;
+    }
+
+    .research-card .rc-type {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .research-card .rc-title {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .research-card .rc-desc {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .research-card .rc-meta {
+      font-family: var(--sans);
+      font-size: 0.73rem;
+      color: var(--light);
+      margin-top: 0.25rem;
+    }
+
+    .research-card .rc-status {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(214, 56, 100, 0.08);
+      border: 1px solid rgba(214, 56, 100, 0.2);
+      border-radius: 2px;
+      padding: 0.1rem 0.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Links ── */
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s;
+    }
+    a:hover { color: var(--accent); }
+
+    /* ── Contact ── */
+    #contact p {
+      font-size: 0.93rem;
+      margin-bottom: 0.75rem;
+      color: var(--mid);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      font-family: var(--sans);
+      font-size: 0.83rem;
+    }
+
+    .social-links a {
+      color: var(--mid);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      background: #f8f0ff;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--light);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    footer a { color: var(--light); }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .site-header { flex-direction: column; gap: 1.25rem; }
+      .site-header img, .site-header .placeholder-photo { width: 90px; height: 90px; }
+      .header-text h1 { font-size: 1.5rem; }
+      nav { flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <!--
+      To add your photo: replace the .placeholder-photo div below with:
+      <img src="images/meredith.jpg" alt="Meredith Bouvier" />
+      and place your photo in an /images/ folder.
+    -->
+    <img src="images/profile.jpg" alt="Meredith Bouvier" />
+    <div class="header-text">
+      <h1>Meredith Bouvier</h1>
+      <div class="tagline">Education Researcher &middot; EdTech Accountability &amp; Computational Methods</div>
+      <p>Founder of NET Lab, an independent EdTech accountability research lab.</p>
+    </div>
+  </header>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I examine how digital platforms shape the lives of children in schools, and how
+      the institutions responsible for governing those platforms — schools, regulators,
+      and the research field itself — fail to hold them accountable. I work at the
+      intersection of computational social science, information policy, and education,
+      using bibliometric analysis, survey methods, and digital trace data to document
+      governance failures and surface the knowledge of those most affected: students,
+      parents, and teachers. The through-line is accountability: who is responsible,
+      who is visible, and whose knowledge counts in the systems making decisions about
+      children's digital lives.
+    </p>
+    <p>
+      I recently completed my PhD in Adult and Lifelong Learning (Minor in Comparative
+      and International Education) at Penn State, where I also served as co-investigator
+      on a study analyzing distance learning infrastructure across 235 rural Pennsylvania
+      school districts.
+    </p>
+    <p>
+      I am the founder of NET Lab, Inc. (NonExploitative Tech Lab), a Delaware Public
+      Benefit Corporation dedicated to independent research on EdTech platform governance,
+      open-source transparency tools, and community-accessible EdTech accountability
+      resources. I am currently on the academic faculty job market for fall 2026–2027.
+    </p>
+    <p>
+      My background is non-linear in ways I consider an epistemological asset. I hold
+      a mathematics degree from Duke University and an M.A. in Mathematics Education
+      from Columbia University Teachers College. I taught mathematics and physics to
+      refugee and immigrant students in New York City, taught in Istanbul, and served
+      as a Peace Corps volunteer in Mali. At various points before, during, and following
+      my doctoral training, I held research positions at the World Bank, UNESCO IIEP,
+      OECD, and the Global Partnership for Education, with a focus on education systems,
+      teacher workforce policy, and EdTech across international contexts.
+    </p>
+    <p>
+      Outside of work, I swim competitively, bike across countries, and dig in the dirt
+      with my two bilingual boys.
+    </p>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <ul class="pub-list">
+
+      <li>
+        <span class="year">2026</span>
+        <strong class="title">
+          "Student Voice, Practitioner Knowledge, and a Disappearing EdTech Review Archive"
+        </strong>
+        <span class="status">under review</span><br>
+        <span class="venue">Commentary submitted to <em>Educational Evaluation and Policy Analysis</em> (AERA)</span><br>
+        <span class="venue">
+          <a href="https://osf.io/ehbfv/overview" target="_blank">OSF</a> &middot;
+          <a href="https://github.com/merrybouv/common-sense-review-archive" target="_blank">GitHub</a>
+        </span>
+      </li>
+
+      <li>
+        <span class="year">2026</span>
+        <strong class="title">
+          "What a Research Field Cannot Know: A Bibliometric Analysis of Critical Discourse in K–12 EdTech Research, 2014–2025"
+        </strong>
+        <span class="status">under review</span><br>
+        <span class="venue">Research study submitted to <em>Discourse: Studies in the Cultural Politics of Education</em></span><br>
+        <span class="venue">
+          <a href="https://osf.io/j74xv/overview" target="_blank">OSF</a> &middot;
+          <a href="https://github.com/merrybouv/edtech-bibliometric-2026" target="_blank">GitHub</a>
+        </span>
+      </li>
+
+      <li>
+        <span class="year">2026</span>
+        <strong class="title">
+          "What Parents and Teachers Report: A Descriptive Survey of K–12 EdTech Concerns"
+        </strong>
+        <span class="status">in preparation</span><br>
+        <span class="venue">NET Lab Working Paper</span>
+      </li>
+
+      <li>
+        <span class="year">2025</span>
+        <strong class="title">
+          "Teacher Collectives and the State: Conflict, Cooperation and Cooptation"
+        </strong><br>
+        <span class="venue">
+          In G. K. LeTendre, J. B. Helgetun, H. Woo, &amp; S. Ikoma (Eds.),
+          <em>The Teacher and the State: A Comparative Analysis of Nordic and East Asian Nations</em>.
+          Emerald Publishing. (with Y. E. Zhang &amp; A. Kyaw)
+        </span>
+      </li>
+
+      <li>
+        <span class="year">2023</span>
+        <strong class="title">
+          <a href="https://doi.org/10.26209/RPVOL2ISS1PP227" target="_blank">
+            "Distance Learning and Online Coordination of Service in Pennsylvania's Rural School Districts"
+          </a>
+        </strong><br>
+        <span class="venue">
+          <em>Rural Policy: The Research Bulletin of the Center for Rural Pennsylvania</em>, 2(1).
+          (with G. K. LeTendre, E. Schooling, H. Woo, &amp; J. Almes; published as Meredith Bannon)
+        </span>
+      </li>
+
+      <!--
+        Earlier work (under Meredith Bannon): OECD Working Papers (2019),
+        conference proceedings (CIES 2023, TEPE 2019), and policy/blog writing
+        at GPE and World Bank. Add selectively below.
+
+      <li>
+        <span class="year">20XX</span>
+        <strong class="title"><a href="URL">"Title"</a></strong><br>
+        <span class="venue"><em>Journal / Publisher</em></span>
+      </li>
+
+      -->
+
+    </ul>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Classroom Tech Transparency (CTT)</h3>
+        <span class="project-tag">in beta</span>
+      </div>
+      <p>
+        CTT is a web-based initiative giving parents and caregivers direct visibility
+        into the technology used in their children's classrooms — what it surfaces, how
+        it behaves, and what other families and educators are saying about it. The project
+        is co-founded with parent advocate Joanna Houston and has attracted interest from
+        multiple national news outlets ahead of its public launch.
+      </p>
+      <ul class="tool-list">
+        <li>
+          <strong>YouTube Classroom Tracker</strong> — uses Google Takeout and Google
+          My Activity exports, combined with school bell schedules, to surface the YouTube
+          videos a child's account accessed during instructional time. Enables informed
+          conversations with teachers and schools about platform use and content exposure
+          without relying on self-report or platform-provided metrics.
+        </li>
+        <li>
+          <strong>EdTech Concern Explorer</strong> <em>(in development)</em> — a
+          searchable interface into a curated 10-year corpus of Reddit discourse (2014–2024)
+          from parents, teachers, and students. Search by platform or concern type and
+          read what real families, educators, and students themselves are saying about
+          technology in school.
+        </li>
+      </ul>
+      <p class="project-collab">
+        Co-founded with Joanna Houston &middot;
+        Website coming soon &middot;
+        <a href="https://github.com/merrybouv/classroom-youtube-tracker-backend" target="_blank">GitHub</a>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>AI in Education: Global Competency Frameworks</h3>
+        <span class="project-tag">in progress</span>
+      </div>
+      <p>
+        Comparative computational analysis of national AI education policy documents
+        across approximately 30 countries. Uses Claude API structured extraction to
+        identify competency statements — what knowledge, skills, and dispositions
+        frameworks actually require of students — followed by BERTopic thematic
+        analysis and cross-country comparison.
+      </p>
+      <p class="project-collab">
+        With a distinguished professor of education policy, Penn State
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Interested in research collaborations, speaking invitations, or EdTech accountability work? Reach out below. CV available upon request.</p>
+    <ul class="social-links">
+      <li><a href="mailto:merrybouv@proton.me">Email</a></li>
+      <li><a href="https://github.com/merrybouv" target="_blank">GitHub</a></li>
+      <li><a href="https://orcid.org/0009-0009-0978-5231" target="_blank">ORCID</a></li>
+      <!-- <li><a href="https://twitter.com/YOURHANDLE" target="_blank">Twitter / X</a></li> -->
+    </ul>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    &copy; Meredith Bouvier 2025–<span id="yr"></span>.
+    Earlier work published as
+    <a href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en" target="_blank">Meredith Bannon</a>.
+  </footer>
+
+</div>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
