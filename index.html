@@ -33,14 +33,13 @@
       padding: 0 1.5rem;
     }
 
-    /* ── Layout ── */
     .wrapper {
       max-width: 680px;
       margin: 0 auto;
       padding: 4rem 0 6rem;
     }
 
-    /* ── Header / Bio ── */
+    /* ── Header ── */
     .site-header {
       display: flex;
       gap: 2.5rem;
@@ -58,23 +57,6 @@
       object-position: top;
       flex-shrink: 0;
       border: 3px solid var(--rule);
-    }
-
-    .site-header .placeholder-photo {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--light);
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      text-align: center;
-      border: 2px dashed var(--light);
-      line-height: 1.4;
     }
 
     .header-text h1 {
@@ -103,7 +85,7 @@
       line-height: 1.7;
     }
 
-    /* ── Navigation ── */
+    /* ── Nav ── */
     nav {
       display: flex;
       gap: 1.5rem;
@@ -138,7 +120,7 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    /* ── Bio section ── */
+    /* ── About ── */
     #about p {
       margin-bottom: 1rem;
       font-size: 1rem;
@@ -278,79 +260,6 @@
       margin-top: 0.75rem;
     }
 
-    /* ── Research showcase ── */
-    .research-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    @media (max-width: 520px) { .research-grid { grid-template-columns: 1fr; } }
-
-    .research-card {
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 1.25rem;
-      background: #f8f0ff;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .research-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 2px 8px rgba(214,56,100,0.08);
-      color: inherit;
-    }
-
-    .research-card .rc-type {
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-    }
-
-    .research-card .rc-title {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.35;
-    }
-
-    .research-card .rc-desc {
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      color: var(--mid);
-      line-height: 1.55;
-      flex: 1;
-    }
-
-    .research-card .rc-meta {
-      font-family: var(--sans);
-      font-size: 0.73rem;
-      color: var(--light);
-      margin-top: 0.25rem;
-    }
-
-    .research-card .rc-status {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(196, 77, 123, 0.08);
-      border: 1px solid rgba(196, 77, 123, 0.2);
-      border-radius: 2px;
-      padding: 0.1rem 0.35rem;
-      letter-spacing: 0.03em;
-    }
-
     /* ── Links ── */
     a {
       color: var(--link);
@@ -407,7 +316,7 @@
     /* ── Responsive ── */
     @media (max-width: 520px) {
       .site-header { flex-direction: column; gap: 1.25rem; }
-      .site-header img, .site-header .placeholder-photo { width: 90px; height: 90px; }
+      .site-header img { width: 90px; height: 90px; }
       .header-text h1 { font-size: 1.5rem; }
       nav { flex-wrap: wrap; gap: 1rem; }
     }
@@ -418,16 +327,10 @@
 
   <!-- ── HEADER ── -->
   <header class="site-header">
-    <!--
-      To add your photo: replace the .placeholder-photo div below with:
-      <img src="images/meredith.jpg" alt="Meredith Bouvier" />
-      and place your photo in an /images/ folder.
-    -->
     <img src="images/profile.jpg" alt="Meredith Bouvier" />
     <div class="header-text">
       <h1>Meredith Bouvier</h1>
-      <div class="tagline">Education Researcher &middot; EdTech Accountability &amp; Computational Methods</div>
-      <p>Founder of NET Lab, an independent EdTech accountability research lab.</p>
+      <div class="tagline">Education Researcher &middot; Computational Methods &middot; EdTech Transparency &amp; Accountability</div>
     </div>
   </header>
 
@@ -443,44 +346,38 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      I examine how digital platforms shape the lives of children in schools, and how
-      the institutions responsible for governing those platforms — schools, regulators,
-      and the research field itself — fail to hold them accountable. I work at the
-      intersection of computational social science, information policy, and education,
-      using bibliometric analysis, survey methods, and digital trace data to document
-      governance failures and surface the knowledge of those most affected: students,
-      parents, and teachers. The through-line is accountability: who is responsible,
-      who is visible, and whose knowledge counts in the systems making decisions about
-      children's digital lives.
+      I study what happens to children when schools hand them a device. That means
+      documenting how platforms exploit the captive audience of the classroom — who
+      profits, what data flows, and why the institutions responsible for oversight
+      consistently fail to act. It also means asking what technology in schools could
+      look like instead: tools that serve students' long-term development, that make
+      space for offline and embodied learning, and that treat children as people rather
+      than data points. I work on both sides of that question in equal measure.
     </p>
     <p>
-      I recently completed my PhD in Lifelong Learning (Minor in Comparative
-      and International Education) at Penn State, where I also served as co-investigator
-      on a study analyzing distance learning infrastructure across 235 rural Pennsylvania
-      school districts.
+      My methods draw on computational social science, bibliometric analysis, survey
+      research, and digital trace data. I work at the intersection of information policy,
+      education, and platform governance, and I am particularly interested in surfacing
+      the knowledge of those most affected — students, parents, and teachers — who are
+      rarely consulted in the systems making decisions about their digital lives.
     </p>
     <p>
-      I am the founder of NET Lab, Inc. (NonExploitative Tech Lab), a Delaware Public
-      Benefit Corporation dedicated to independent research on EdTech platform governance,
-      open-source transparency tools, and community-accessible EdTech accountability
-      resources.
+      I am Chief Research Officer and Co-founder of the
+      <a href="https://classtechtransparency.org" target="_blank">Classroom Tech
+      Transparency Project</a>, and I recently completed my PhD in Lifelong Learning
+      (Minor in Comparative and International Education) at Penn State.
     </p>
     <p>
-      My background is non-linear in ways I consider an epistemological asset. I hold
-      a mathematics degree from Duke University and an M.A. in Mathematics Education
-      from Columbia University Teachers College. I taught mathematics and physics to
-      refugee and immigrant students in New York City, taught in Istanbul, and served
-      as a Peace Corps volunteer in Mali. At various points before, during, and following
-      my doctoral training, I held research positions at the World Bank, UNESCO IIEP,
-      OECD, and the Global Partnership for Education, with a focus on education systems,
-      teacher workforce policy, and EdTech across international contexts.
+      My background is non-linear in ways I consider an asset. I hold mathematics
+      degrees from Duke University and Columbia Teachers College; before my doctoral training I taught mathematics to refugee and immigrant
+      students in New York City, lived and taught abroad, and held research positions
+      at the World Bank, UNESCO IIEP, OECD, and the Global Partnership for Education.
     </p>
     <p>
       Outside of work, I swim competitively, bike across countries, and dig in the dirt
       with my two bilingual boys.
     </p>
     <p>
-      I am currently on the academic faculty job market for positions beginning fall 2026–2027.
       CV available upon request at <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
     </p>
   </section>
@@ -493,10 +390,9 @@
       <li>
         <span class="year">2026</span>
         <strong class="title">
-          "Student Voice, Practitioner Knowledge, and a Disappearing EdTech Review Archive"
-        </strong>
-        <span class="status">under review</span><br>
-        <span class="venue">Commentary submitted to <em>Postdigital Science and Education</em></span><br>
+          <a href="https://doi.org/10.1007/s42438-026-00659-z" target="_blank">"Student Voice, Practitioner Knowledge, and a Disappearing EdTech Review Archive"</a>
+        </strong><br>
+        <span class="venue">Commentary in <em>Postdigital Science and Education</em></span><br>
         <span class="venue">
           <a href="https://osf.io/ehbfv/overview" target="_blank">OSF</a> &middot;
           <a href="https://github.com/merrybouv/common-sense-review-archive" target="_blank">GitHub</a>
@@ -508,8 +404,8 @@
         <strong class="title">
           "What a Research Field Cannot Know: A Bibliometric Analysis of Critical Discourse in K–12 EdTech Research, 2014–2025"
         </strong>
-        <span class="status">under review</span><br>
-        <span class="venue">Research study submitted to <em>British Journal of Educational Technology</em></span><br>
+        <span class="status">in preparation</span><br>
+        <span class="venue">Research study</span><br>
         <span class="venue">
           <a href="https://osf.io/j74xv/overview" target="_blank">OSF</a> &middot;
           <a href="https://github.com/merrybouv/edtech-bibliometric-2026" target="_blank">GitHub</a>
@@ -522,13 +418,13 @@
           "What Parents and Teachers Report: A Descriptive Survey of K–12 EdTech Concerns"
         </strong>
         <span class="status">in preparation</span><br>
-        <span class="venue">NET Lab Working Paper</span>
+        <span class="venue">CTTP Working Paper</span>
       </li>
 
       <li>
         <span class="year">2025</span>
         <strong class="title">
-          "Teacher Collectives and the State: Conflict, Cooperation and Cooptation"
+          <a href="https://doi.org/10.1108/978-1-83662-992-420251005" target="_blank">"Teacher Collectives and the State: Conflict, Cooperation and Cooptation"</a>
         </strong><br>
         <span class="venue">
           In G. K. LeTendre, J. B. Helgetun, H. Woo, &amp; S. Ikoma (Eds.),
@@ -550,19 +446,6 @@
         </span>
       </li>
 
-      <!--
-        Earlier work (under Meredith Bannon): OECD Working Papers (2019),
-        conference proceedings (CIES 2023, TEPE 2019), and policy/blog writing
-        at GPE and World Bank. Add selectively below.
-
-      <li>
-        <span class="year">20XX</span>
-        <strong class="title"><a href="URL">"Title"</a></strong><br>
-        <span class="venue"><em>Journal / Publisher</em></span>
-      </li>
-
-      -->
-
     </ul>
     <p style="font-family: var(--sans); font-size: 0.85rem; color: var(--mid); margin-top: 1.25rem;">
       Some additional publications are listed on <a href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en" target="_blank">Google Scholar</a>.
@@ -577,51 +460,65 @@
 
     <div class="project-card">
       <div class="project-header">
-        <h3>Classroom Tech Transparency (CTT)</h3>
+        <h3>Classroom Tech Transparency Project (CTTP)</h3>
         <span class="project-tag">in beta</span>
       </div>
       <p>
-        CTT is a web-based initiative giving parents and caregivers direct visibility
-        into the technology used in their children's classrooms — what it surfaces, how
-        it behaves, and what other families and educators are saying about it. The project
-        is co-founded with parent advocate Joanna Houston and has attracted interest from
-        multiple national news outlets ahead of its public launch.
+        CTTP is a privacy-first research and tools organization giving parents and
+        caregivers direct visibility into the technology used in their children's
+        classrooms — what it surfaces, how it behaves, and what other families and
+        educators are saying about it. Co-founded with parent advocate Joanna Houston,
+        CTTP has attracted interest from multiple national news outlets ahead of its
+        public launch.
       </p>
       <ul class="tool-list">
         <li>
-          <strong>YouTube Classroom Tracker</strong> — uses Google Takeout exports,
-          combined with school bell schedules, to surface the YouTube videos a child's
-          account accessed during instructional time. Enables informed conversations
-          with teachers and schools about platform use and content exposure without
-          relying on self-report or platform-provided metrics.
+          <strong>ClickBelow</strong><em>(live)</em> — uses Google Takeout exports, combined with
+          school bell schedules, to surface the YouTube videos a child's account
+          accessed during instructional time. Enables evidence-based conversations
+          with teachers and schools about platform use and content exposure.
         </li>
         <li>
           <strong>EdTech Concern Explorer</strong> <em>(in development)</em> — a
           searchable interface into a curated 10-year corpus of Reddit discourse (2014–2024)
           from parents, teachers, and students. Search by platform or concern type and
-          read what real families, educators, and students themselves are saying about
-          technology in school.
+          read what real families, educators, and students are saying about technology
+          in school.
+        </li>
+        <li>
+          <strong>What Parents &amp; Teachers Report</strong> <em>(live)</em> — a
+          participatory data platform built from CTTP's original survey research.
+          Parents and educators can contribute their experiences and see how their
+          responses compare to the growing aggregate — covering device time, content
+          concerns, unauthorized AI use, and more.
+        </li>
+        <li>
+          <strong>FERPA Request Tracker</strong> <em>(in development)</em> — generates
+          customized FERPA request letters naming specific EdTech platforms, tracks the
+          legally required 45-day district response window, and sends follow-up and
+          escalation letters automatically. Collects anonymized compliance outcomes to
+          build the first national dataset on district FERPA response behavior.
         </li>
       </ul>
       <p class="project-collab">
-        Co-founded with Joanna Houston &middot; Website coming soon
+        Co-founded with Joanna Houston &middot; <a href="https://classtechtransparency.org" target="_blank">classtechtransparency.org</a>
       </p>
     </div>
 
     <div class="project-card">
       <div class="project-header">
-        <h3>AI in Education: Global Competency Frameworks</h3>
-        <span class="project-tag">in progress</span>
+        <h3>Apprenti</h3>
+        <span class="project-tag">prototype</span>
       </div>
       <p>
-        Comparative computational analysis of national AI education policy documents
-        across approximately 30 countries. Uses Claude API structured extraction to
-        identify competency statements — what knowledge, skills, and dispositions
-        frameworks actually require of students — followed by BERTopic thematic
-        analysis and cross-country comparison.
+        An offline-first, AI-powered career exploration tool for students. Apprenti
+        generates personalized, skill-based missions that connect classroom learning
+        to real-world work — without tracking, without data collection, and without
+        requiring school infrastructure. Designed as a privacy-preserving alternative
+        to platform-dependent career readiness tools.
       </p>
       <p class="project-collab">
-        With a distinguished professor of education policy, Penn State
+        Independent research prototype
       </p>
     </div>
 
@@ -630,12 +527,10 @@
   <!-- ── CONTACT ── -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Interested in research collaborations or EdTech accountability work? Reach out below.</p>
     <ul class="social-links">
       <li><a href="mailto:merrybouv@proton.me">Email</a></li>
       <li><a href="https://github.com/merrybouv" target="_blank">GitHub</a></li>
       <li><a href="https://orcid.org/0009-0009-0978-5231" target="_blank">ORCID</a></li>
-      <!-- <li><a href="https://twitter.com/YOURHANDLE" target="_blank">Twitter / X</a></li> -->
     </ul>
   </section>
 
