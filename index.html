@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meredith Bouvier</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #fdfbee;
-      --ink:     #1c1a1a;
-      --mid:     #4a4545;
-      --light:   #9e9a8a;
-      --accent:  #c44d7b;
-      --rule:    #ede8cc;
-      --link:    #6b3fa0;
-      --card-bg: #f8f0ff;
-      --serif:   'Playfair Display', Georgia, serif;
-      --sans:    'Karla', system-ui, sans-serif;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { font-size: 17px; scroll-behavior: smooth; }
+    :root {
+      --bg: #fdfbee;
+      --ink: #1c1a1a;
+      --mid: #4a4545;
+      --light: #9e9a8a;
+      --accent: #c44d7b;
+      --rule: #ede8cc;
+      --link: #6b3fa0;
+      --card-bg: #f8f0ff;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Karla', system-ui, sans-serif;
+    }
+
+    html {
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -103,10 +115,15 @@
       transition: color 0.2s;
       letter-spacing: 0.02em;
     }
-    nav a:hover { color: var(--accent); }
+
+    nav a:hover {
+      color: var(--accent);
+    }
 
     /* ── Sections ── */
-    section { margin-bottom: 4rem; }
+    section {
+      margin-bottom: 4rem;
+    }
 
     section h2 {
       font-family: var(--sans);
@@ -126,10 +143,15 @@
       font-size: 1rem;
       line-height: 1.8;
     }
-    #about p:last-child { margin-bottom: 0; }
+
+    #about p:last-child {
+      margin-bottom: 0;
+    }
 
     /* ── Publications ── */
-    .pub-list { list-style: none; }
+    .pub-list {
+      list-style: none;
+    }
 
     .pub-list li {
       padding: 0.9rem 0;
@@ -137,7 +159,10 @@
       font-size: 0.93rem;
       line-height: 1.65;
     }
-    .pub-list li:first-child { border-top: 1px solid var(--rule); }
+
+    .pub-list li:first-child {
+      border-top: 1px solid var(--rule);
+    }
 
     .pub-list .year {
       font-family: var(--sans);
@@ -184,7 +209,9 @@
       background: #f8f0ff;
     }
 
-    .project-card:last-child { margin-bottom: 0; }
+    .project-card:last-child {
+      margin-bottom: 0;
+    }
 
     .project-card .project-header {
       display: flex;
@@ -220,7 +247,10 @@
       color: var(--mid);
       margin-bottom: 0.6rem;
     }
-    .project-card p:last-child { margin-bottom: 0; }
+
+    .project-card p:last-child {
+      margin-bottom: 0;
+    }
 
     .project-card .tool-list {
       list-style: none;
@@ -268,7 +298,10 @@
       text-decoration-thickness: 1px;
       transition: color 0.2s;
     }
-    a:hover { color: var(--accent); }
+
+    a:hover {
+      color: var(--accent);
+    }
 
     /* ── Contact ── */
     #contact p {
@@ -311,27 +344,50 @@
       margin-top: 4rem;
     }
 
-    footer a { color: var(--light); }
+    footer a {
+      color: var(--light);
+    }
 
     /* ── Responsive ── */
     @media (max-width: 520px) {
-      .site-header { flex-direction: column; gap: 1.25rem; }
-      .site-header img { width: 90px; height: 90px; }
-      .header-text h1 { font-size: 1.5rem; }
-      nav { flex-wrap: wrap; gap: 1rem; }
+      .site-header {
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .site-header img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .header-text h1 {
+        font-size: 1.5rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
-<body>
-<div class="wrapper">
 
-  <!-- ── HEADER ── -->
-  <header class="site-header">
-    <img src="images/profile.jpg" alt="Meredith Bouvier" />
-    <div class="header-text">
-      <h1>Meredith Bouvier</h1>
-      <div class="tagline">Education Researcher &middot; Computational Methods &middot; Age-Appropriate AI</div>
-    </div>
+<body>
+  <div class="wrapper">
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+      <img src="images/profile.jpg" alt="Meredith Bouvier" />
+      <div class="header-text">
+        <h1>Meredith Bouvier</h1>
+        <<<<<<< HEAD <div class="tagline">Education Researcher &middot; Computational Methods &middot; Age-Appropriate
+          AI
+      </div>
+      =======
+      <div class="tagline">AI, Children &amp; Online Safety &middot; Computational Research</div>
+      <div class="tagline" style="margin-top: -0.6rem;">Platform Governance &amp; Algorithmic Accountability</div>
+      >>>>>>> 86d45f9f6db881f07ec53f34483560afaff7521e
+  </div>
   </header>
 
   <!-- ── NAV ── -->
@@ -346,41 +402,46 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      I work on what technology for children should actually look like, meaning tools that
-      serve students' long-term development, protect their privacy, make room for
-      offline and embodied learning, and treat young people as people rather than data
-      points. Increasingly I don't only study these questions but build working
-      prototypes that answer them: deployable systems that demonstrate what
-      developmentally grounded, child-centered technology can be.
+      I am a computational researcher studying how AI and platform systems shape the
+      lives of children — in classrooms, at home, in games, and in their interactions
+      with increasingly capable AI tools. I use machine-learning-assisted text analysis,
+      topic modeling, digital trace data, and survey research to understand how these
+      systems behave in practice, how they can be measured, and how they can be made
+      safer for the people most affected by them. Increasingly I don't only study these
+      questions but build working prototypes that answer them: deployable systems that
+      demonstrate what developmentally grounded, child-centered technology can be.
     </p>
     <p>
-      My research draws on computational social science, bibliometric analysis, survey
-      research, and digital trace data, and I work at the intersection of learning
-      science, information policy, and platform governance. I care especially about
-      surfacing the knowledge of those most affected (students, parents, and teachers)
-      who are rarely consulted in the systems making decisions about their digital lives.
-      Understanding how these systems fail is what makes it possible to design ones that
-      don't.
+      Much of my work centers on a question that matters more as AI systems reach younger
+      users: how do we design and govern technologies built for or used by children, so
+      that they support healthy development rather than exploit attention, data, or trust?
+      I am especially interested in age-appropriate design, the gap between what platforms
+      claim and what they do, and surfacing the knowledge of children, parents, and
+      educators who are rarely consulted in the systems making decisions about their
+      digital lives.
     </p>
     <p>
-      I am Chief Research Officer and Co-founder of the
+      I am Co-founder and Chief Research Officer of the
       <a href="https://classtechtransparency.org" target="_blank">Classroom Tech
-      Transparency Project</a>, and I recently completed my PhD in Lifelong Learning
-      (Minor in Comparative and International Education) at Penn State.
+        Transparency Project</a>, where I build privacy-preserving tools and computational
+      methods for understanding how digital systems are used by children across schools
+      and households. I recently completed my PhD at Penn State.
     </p>
     <p>
       My background is non-linear in ways I consider an asset. I hold mathematics
-      degrees from Duke University and Columbia Teachers College; before my doctoral
-      training I taught mathematics to refugee and immigrant students in New York City,
-      lived and taught abroad, and held research positions at the World Bank, UNESCO
-      IIEP, OECD, and the Global Partnership for Education.
+      degrees from Duke University and Columbia Teachers College, and before turning to
+      computational research I taught mathematics to refugee and immigrant students in
+      New York City, lived and taught abroad, and held research positions at the World
+      Bank, UNESCO IIEP, OECD, and the Global Partnership for Education.
     </p>
     <p>
       Outside of work, I swim competitively, bike across countries, and dig in the dirt
       with my two bilingual boys.
     </p>
     <p>
-      CV available upon request at <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
+      My methods are computational: Python and SQL pipelines, LLM-assisted analysis,
+      BERTopic, and digital trace data. CV available upon request at
+      <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
     </p>
   </section>
 
@@ -392,7 +453,8 @@
       <li>
         <span class="year">2026</span>
         <strong class="title">
-          <a href="https://doi.org/10.1007/s42438-026-00659-z" target="_blank">"Student Voice, Practitioner Knowledge, and a Disappearing EdTech Review Archive"</a>
+          <a href="https://doi.org/10.1007/s42438-026-00659-z" target="_blank">"Student Voice, Practitioner Knowledge,
+            and a Disappearing EdTech Review Archive"</a>
         </strong><br>
         <span class="venue">Commentary in <em>Postdigital Science and Education</em></span><br>
         <span class="venue">
@@ -404,10 +466,10 @@
       <li>
         <span class="year">2026</span>
         <strong class="title">
-          "What a Research Field Cannot Know: A Bibliometric Analysis of Critical Discourse in K–12 EdTech Research, 2014–2025"
+          "What a Research Field Cannot Know: Platform Governance and the Limits of K&ndash;12 EdTech Scholarship"
         </strong>
-        <span class="status">in preparation</span><br>
-        <span class="venue">Research study</span><br>
+        <span class="status">under review</span><br>
+        <span class="venue">Research study submitted to <em>British Journal of Educational Technology</em></span><br>
         <span class="venue">
           <a href="https://osf.io/j74xv/overview" target="_blank">OSF</a> &middot;
           <a href="https://github.com/merrybouv/edtech-bibliometric-2026" target="_blank">GitHub</a>
@@ -417,7 +479,7 @@
       <li>
         <span class="year">2026</span>
         <strong class="title">
-          "What Parents and Teachers Report: A Descriptive Survey of K–12 EdTech Concerns"
+          "What Parents and Teachers Report: A Descriptive Survey of K&ndash;12 EdTech Concerns"
         </strong>
         <span class="status">in preparation</span><br>
         <span class="venue">CTTP Working Paper</span>
@@ -426,7 +488,8 @@
       <li>
         <span class="year">2025</span>
         <strong class="title">
-          <a href="https://doi.org/10.1108/978-1-83662-992-420251005" target="_blank">"Teacher Collectives and the State: Conflict, Cooperation and Cooptation"</a>
+          <a href="https://doi.org/10.1108/978-1-83662-992-420251005" target="_blank">"Teacher Collectives and the
+            State: Conflict, Cooperation and Cooptation"</a>
         </strong><br>
         <span class="venue">
           In G. K. LeTendre, J. B. Helgetun, H. Woo, &amp; S. Ikoma (Eds.),
@@ -450,7 +513,8 @@
 
     </ul>
     <p style="font-family: var(--sans); font-size: 0.85rem; color: var(--mid); margin-top: 1.25rem;">
-      Some additional publications are listed on <a href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en" target="_blank">Google Scholar</a>.
+      Some additional publications are listed on <a href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en"
+        target="_blank">Google Scholar</a>.
       For a full list including policy reports, working papers, and grey literature,
       request my CV at <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
     </p>
@@ -488,23 +552,22 @@
         <span class="project-tag">in beta</span>
       </div>
       <p>
-        CTTP is a privacy-first research and tools organization giving parents and
-        caregivers direct visibility into the technology used in their children's
-        classrooms — what it surfaces, how it behaves, and what other families and
-        educators are saying about it. Co-founded with parent advocate Joanna Houston,
-        CTTP has attracted interest from multiple national news outlets ahead of its
-        public launch.
+        CTTP is a privacy-first research and tools organization that helps parents and
+        caregivers understand the technology used in their children's classrooms — what
+        it surfaces, how it behaves, and how its use compares across schools and
+        households. Co-founded with parent advocate Joanna Houston, CTTP has attracted
+        interest from multiple national news outlets ahead of its public launch.
       </p>
       <ul class="tool-list">
         <li>
-          <strong>ClickBelow</strong><em>(live)</em> — uses Google Takeout exports, combined with
-          school bell schedules, to surface the YouTube videos a child's account
-          accessed during instructional time. Enables evidence-based conversations
+          <strong>ClickBelow</strong> <em>(live)</em> — uses Google Takeout exports,
+          combined with school bell schedules, to surface the YouTube videos a child's
+          account accessed during instructional time. Enables evidence-based conversations
           with teachers and schools about platform use and content exposure.
         </li>
         <li>
           <strong>EdTech Concern Explorer</strong> <em>(in development)</em> — a
-          searchable interface into a curated 10-year corpus of Reddit discourse (2014–2024)
+          searchable interface into a curated 10-year corpus of Reddit discourse (2014&ndash;2024)
           from parents, teachers, and students. Search by platform or concern type and
           read what real families, educators, and students are saying about technology
           in school.
@@ -513,19 +576,58 @@
           <strong>What Parents &amp; Teachers Report</strong> <em>(live)</em> — a
           participatory data platform built from CTTP's original survey research.
           Parents and educators can contribute their experiences and see how their
-          responses compare to the growing aggregate — covering device time, content
-          concerns, unauthorized AI use, and more.
+          responses compare to the growing aggregate.
         </li>
         <li>
           <strong>FERPA Request Tracker</strong> <em>(in development)</em> — generates
           customized FERPA request letters naming specific EdTech platforms, tracks the
           legally required 45-day district response window, and sends follow-up and
-          escalation letters automatically. Collects anonymized compliance outcomes to
-          build the first national dataset on district FERPA response behavior.
+          escalation letters automatically.
         </li>
       </ul>
       <p class="project-collab">
-        Co-founded with Joanna Houston &middot; <a href="https://classtechtransparency.org" target="_blank">classtechtransparency.org</a>
+        Co-founded with Joanna Houston &middot;
+        <a href="https://classtechtransparency.org" target="_blank">classtechtransparency.org</a>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Children Online: A Digital Discourse Corpus</h3>
+        <span class="project-tag">in development</span>
+      </div>
+      <p>
+        A computational corpus mapping public discourse on children's digital
+        environments beyond the classroom. Drawing on parenting, gaming, and child-safety
+        communities, it uses topic modeling and large-scale text analysis to surface how
+        the public understands online risks to children — age-inappropriate content,
+        gaming platform design, AI companions, online predation, and the governance gaps
+        that allow harm to persist. Themes are derived empirically from the data rather
+        than imposed in advance.
+      </p>
+      <p>
+        A companion bibliometric study examines whether the research literature on
+        children and gaming centers platform accountability or deflects responsibility
+        onto individual children and families.
+      </p>
+      <p class="project-collab">
+        Independent research
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>AI in Education: Global Competency Frameworks</h3>
+        <span class="project-tag">in progress</span>
+      </div>
+      <p>
+        Comparative computational analysis of national AI education policy documents
+        across approximately 30 countries. Uses Claude API structured extraction to
+        identify competency statements, followed by BERTopic thematic analysis and
+        cross-country comparison.
+      </p>
+      <p class="project-collab">
+        With a distinguished professor of education policy, Penn State
       </p>
     </div>
 
@@ -538,8 +640,7 @@
         An offline-first, AI-powered career exploration tool for students. Apprenti
         generates personalized, skill-based missions that connect classroom learning
         to real-world work — without tracking, without data collection, and without
-        requiring school infrastructure. Designed as a privacy-preserving alternative
-        to platform-dependent career readiness tools.
+        requiring school infrastructure.
       </p>
       <p class="project-collab">
         Independent research prototype
@@ -551,6 +652,7 @@
   <!-- ── CONTACT ── -->
   <section id="contact">
     <h2>Contact</h2>
+    <p>Interested in research collaborations or applied AI and child-safety work? Reach out below.</p>
     <ul class="social-links">
       <li><a href="mailto:merrybouv@proton.me">Email</a></li>
       <li><a href="https://github.com/merrybouv" target="_blank">GitHub</a></li>
@@ -560,12 +662,13 @@
 
   <!-- ── FOOTER ── -->
   <footer>
-    &copy; Meredith Bouvier 2025–<span id="yr"></span>.
+    &copy; Meredith Bouvier 2025&ndash;<span id="yr"></span>.
   </footer>
 
-</div>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
+  </div>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
