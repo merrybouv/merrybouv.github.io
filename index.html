@@ -1,652 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meredith Bouvier</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #fdfbee;
-      --ink: #1c1a1a;
-      --mid: #4a4545;
-      --light: #9e9a8a;
-      --accent: #c44d7b;
-      --rule: #ede8cc;
-      --link: #6b3fa0;
-      --card-bg: #f8f0ff;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'Karla', system-ui, sans-serif;
+      --bg:      #fdfbee;
+      --ink:     #1c1a1a;
+      --mid:     #4a4545;
+      --light:   #9e9a8a;
+      --accent:  #c44d7b;
+      --accent-deep: #a63862;
+      --rule:    #ede8cc;
+      --link:    #6b3fa0;
+      --axis:    #ddd2ef;      /* light purple, the arrowed x-y axes */
+      --baseline-blue: #e4eefb;  /* light blue, the Baseline demo card */
+      --proj-pink: #fdeef4;      /* light pink, the projects card */
+      --pub-cream: #fdf7ea;      /* warm, the publications card */
+      --bio-green: #eaf3e6;      /* soft sage, the bio card */
+      --card:    #fffdf5;
+      --card-pink: #f8f0ff;
+      --serif:   'Playfair Display', Georgia, serif;
+      --display: 'Fraunces', Georgia, serif;
+      --sans:    'Karla', system-ui, sans-serif;
     }
 
-    html {
-      font-size: 17px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--ink);
       font-family: var(--serif);
-      line-height: 1.75;
-      padding: 0 1.5rem;
-    }
-
-    .wrapper {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 4rem 0 6rem;
-    }
-
-    /* ── Header ── */
-    .site-header {
-      display: flex;
-      gap: 2.5rem;
-      align-items: flex-start;
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .site-header img {
-      width: 130px;
-      height: 180px;
-      border-radius: 8px;
-      object-fit: cover;
-      object-position: top;
-      flex-shrink: 0;
-      border: 3px solid var(--rule);
-    }
-
-    .header-text h1 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.9rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 0.15rem;
-    }
-
-    .header-text .tagline {
-      font-family: var(--sans);
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
-    }
-
-    .header-text p {
-      font-size: 0.95rem;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    /* ── Nav ── */
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 1rem;
-    }
-
-    nav a {
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-      letter-spacing: 0.02em;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* ── Sections ── */
-    section {
-      margin-bottom: 4rem;
-    }
-
-    section h2 {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    /* ── About ── */
-    #about p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    #about p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ── Publications ── */
-    .pub-list {
-      list-style: none;
-    }
-
-    .pub-list li {
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.93rem;
-      line-height: 1.65;
-    }
-
-    .pub-list li:first-child {
-      border-top: 1px solid var(--rule);
-    }
-
-    .pub-list .year {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--light);
-      display: inline-block;
-      min-width: 2.8rem;
-      margin-right: 0.25rem;
-    }
-
-    .pub-list .title {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .pub-list .venue {
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      color: var(--mid);
-    }
-
-    .pub-list .status {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(196, 77, 123, 0.08);
-      border: 1px solid rgba(196, 77, 123, 0.25);
-      border-radius: 2px;
-      padding: 0.1rem 0.4rem;
-      margin-left: 0.4rem;
-      vertical-align: middle;
-      letter-spacing: 0.03em;
-    }
-
-    /* ── Project cards ── */
-    .project-card {
-      border: 1px solid var(--rule);
-      border-radius: 4px;
+      line-height: 1.6;
       padding: 1.5rem;
-      margin-bottom: 1.25rem;
-      background: #f8f0ff;
+      min-height: 100vh;
     }
 
-    .project-card:last-child {
-      margin-bottom: 0;
+    /* Four quadrants on an x-y axis. The axes are drawn as light-purple lines
+       with arrowheads at all four ends, crossing at the center (the origin).
+       No outer box, the axes float on the cream field. */
+    .plane {
+      position: relative;
+      max-width: 1500px;
+      margin: 0 auto;
     }
 
-    .project-card .project-header {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
+    .grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      align-items: stretch;   /* quadrants in a row match heights */
     }
 
-    .project-card h3 {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .project-card .project-tag {
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(196, 77, 123, 0.08);
-      border: 1px solid rgba(196, 77, 123, 0.2);
-      border-radius: 2px;
-      padding: 0.1rem 0.4rem;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-    }
-
-    .project-card p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--mid);
-      margin-bottom: 0.6rem;
-    }
-
-    .project-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-card .tool-list {
-      list-style: none;
-      margin-top: 0.75rem;
-      border-top: 1px solid var(--rule);
-      padding-top: 0.75rem;
+    .quad {
+      background: transparent;
+      padding: 2rem 2.4rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+    }
+    /* pad each quadrant AWAY from the central axes so text doesn't touch the lines */
+    .grid > .quad:nth-child(1) { padding-right: 3.4rem; padding-bottom: 3rem; } /* TL */
+    .grid > .quad:nth-child(2) { padding-left: 3.4rem;  padding-bottom: 3rem; } /* TR */
+    .grid > .quad:nth-child(3) { padding-right: 3.4rem; padding-top: 3rem; padding-bottom: 3rem; }    /* BL */
+    .grid > .quad:nth-child(4) { padding-left: 3.4rem;  padding-top: 3rem; padding-bottom: 3rem; }    /* BR */
+
+    /* ── The axes ── */
+    .axis-v, .axis-h { position: absolute; z-index: 1; background: var(--axis); }
+    .axis-v {
+      left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-0.5px);
+    }
+    .axis-h {
+      top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-0.5px);
+    }
+    /* arrowheads via borders */
+    .axis-v::before, .axis-v::after, .axis-h::before, .axis-h::after {
+      content: ""; position: absolute; width: 0; height: 0;
+    }
+    /* vertical: up arrow (top) + down arrow (bottom) */
+    .axis-v::before {
+      top: -1px; left: 50%; transform: translateX(-50%);
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+      border-bottom: 6px solid var(--axis);
+    }
+    .axis-v::after {
+      bottom: -1px; left: 50%; transform: translateX(-50%);
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+      border-top: 6px solid var(--axis);
+    }
+    /* horizontal: left arrow + right arrow */
+    .axis-h::before {
+      left: -1px; top: 50%; transform: translateY(-50%);
+      border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+      border-right: 6px solid var(--axis);
+    }
+    .axis-h::after {
+      right: -1px; top: 50%; transform: translateY(-50%);
+      border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+      border-left: 6px solid var(--axis);
     }
 
-    .project-card .tool-list li {
-      font-size: 0.875rem;
-      color: var(--mid);
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.55;
+    /* ── Quadrant: Identity (top-left) ── */
+    .q-id { display: flex; flex-direction: column; }
+    .id-top { display: flex; gap: 1.4rem; align-items: flex-start; margin-bottom: 1.1rem; }
+    .id-top img {
+      width: 104px; height: 140px; border-radius: 7px;
+      object-fit: cover; object-position: top; flex-shrink: 0;
+      border: 2px solid var(--rule);
     }
-
-    .project-card .tool-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-family: var(--sans);
+    .id-name h1 {
+      font-family: var(--display);
+      font-size: 2rem; font-weight: 600; letter-spacing: -0.02em;
+      line-height: 1.05; margin-bottom: 0.5rem;
     }
-
-    .project-card .tool-list strong {
-      color: var(--ink);
-      font-weight: 600;
+    .tagline {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.07em;
+      line-height: 1.5;
     }
-
-    .project-collab {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--light);
-      margin-top: 0.75rem;
+    .bio p {
+      font-size: 0.83rem; line-height: 1.62; color: var(--mid);
+      margin-bottom: 0.6rem;
     }
+    .bio p:last-child { margin-bottom: 0; }
+    .bio strong { color: var(--ink); font-weight: 500; }
+    .bio a { color: var(--link); }
 
-    /* ── Links ── */
-    a {
-      color: var(--link);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 1px;
-      transition: color 0.2s;
+    /* ── Quadrant: Baseline (top-right), the signature ── */
+    /* Baseline demo lives as a distinct clickable CARD, inset from the axes */
+    .q-baseline-wrap {
+      display: flex; align-items: center; justify-content: center;
     }
-
-    a:hover {
-      color: var(--accent);
-    }
-
-    /* ── Contact ── */
-    #contact p {
-      font-size: 0.93rem;
-      margin-bottom: 0.75rem;
-      color: var(--mid);
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      list-style: none;
-      font-family: var(--sans);
-      font-size: 0.83rem;
-    }
-
-    .social-links a {
-      color: var(--mid);
+    .demo-card {
+      display: flex; flex-direction: column;
+      background: var(--baseline-blue);
+      border: 1px solid #c3d6f0;
+      border-radius: 12px;
+      padding: 2.2rem 2.2rem 1.8rem;
       text-decoration: none;
-      border: 1px solid var(--rule);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      background: #f8f0ff;
+      color: var(--ink);
+      max-width: 30rem;
+      width: 100%;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+    }
+    .demo-card:hover {
+      transform: translateY(-3px);
+      background: #d6e6fa;
+      box-shadow: 0 14px 34px -14px rgba(60, 110, 180, 0.45);
+    }
+    .demo-eyebrow {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #3a6db0;
+      margin-bottom: 0.9rem;
+    }
+    .demo-title {
+      font-family: var(--display); font-size: 1.6rem; font-weight: 600;
+      line-height: 1.15; letter-spacing: -0.01em; color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+    .demo-blurb {
+      font-size: 0.86rem; line-height: 1.55; color: var(--mid);
+      margin-bottom: 1.5rem;
+    }
+    .demo-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--sans); font-size: 0.92rem; font-weight: 600;
+      color: #2c5c9e;
+    }
+    .demo-cta .arrow { transition: transform 0.18s ease; }
+    .demo-card:hover .demo-cta .arrow { transform: translateX(4px); }
+    .demo-url {
+      font-family: var(--sans); font-size: 0.72rem; color: #7d95b8;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Section headers shared (projects/pubs) ── */
+    .q-head {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent);
+      margin-bottom: 1.1rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Quadrant: Projects (bottom-left) ── */
+    .proj { padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+    .proj:first-of-type { padding-top: 0; }
+    .proj:last-child { border-bottom: none; padding-bottom: 0; }
+    .proj-title {
+      display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+    }
+    .proj-title h3 {
+      font-family: var(--serif); font-size: 0.98rem; font-weight: 600; color: var(--ink);
+    }
+    .proj-title h3 a { color: var(--ink); text-decoration: none; }
+    .proj-title h3 a:hover { color: var(--accent); }
+    .tag {
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      color: var(--accent); background: rgba(196,77,123,0.08);
+      border: 1px solid rgba(196,77,123,0.22); border-radius: 3px;
+      padding: 0.08rem 0.4rem; letter-spacing: 0.03em; white-space: nowrap;
+      text-transform: uppercase;
+    }
+    .proj p {
+      font-size: 0.8rem; line-height: 1.55; color: var(--mid);
+    }
+    .proj p a { color: var(--link); }
+
+    /* ── Quadrant: Publications (bottom-right) ── */
+    .pub { padding: 0.7rem 0; border-bottom: 1px solid var(--rule); }
+    .pub:first-of-type { padding-top: 0; }
+    .pub:last-of-type { border-bottom: none; }
+    .pub .year {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      color: var(--light); margin-right: 0.4rem;
+    }
+    .pub .title { font-style: italic; font-weight: 500; font-size: 0.86rem; }
+    .pub .title a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .pub .title a:hover { color: var(--accent); }
+    .pub .venue { font-family: var(--sans); font-size: 0.72rem; color: var(--mid); }
+    .pub .venue a { color: var(--link); }
+    .pub .status {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      color: var(--accent); background: rgba(196,77,123,0.08);
+      border: 1px solid rgba(196,77,123,0.22); border-radius: 3px;
+      padding: 0.05rem 0.35rem; letter-spacing: 0.03em; text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .pub-more {
+      font-family: var(--sans); font-size: 0.74rem; color: var(--mid);
+      margin-top: 0.9rem;
+    }
+    .pub-more a { color: var(--link); }
+
+    /* ── Footer contact strip ── */
+    .foot {
+      max-width: 1500px; margin: 2.4rem auto 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-family: var(--sans); font-size: 0.74rem; color: var(--light);
+      padding: 0 0.4rem;
+    }
+    .foot-links { display: flex; gap: 0.6rem; }
+    .foot-links a {
+      color: var(--mid); text-decoration: none;
+      border: 1px solid var(--rule); border-radius: 4px;
+      padding: 0.3rem 0.7rem; background: var(--card);
       transition: border-color 0.2s, color 0.2s;
     }
+    .foot-links a:hover { border-color: var(--accent); color: var(--accent); }
 
-    .social-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    /* ── Rotating project card (bottom-left, pink) ── */
+    .q-proj-wrap { display: flex; align-items: center; justify-content: center; }
+    .proj-card {
+      background: var(--proj-pink);
+      border: 1px solid #f2cfe0;
+      border-radius: 12px;
+      padding: 1.8rem 2rem 1.5rem;
+      max-width: 30rem; width: 100%;
+      display: flex; flex-direction: column;
+    }
+    .proj-card-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .proj-eyebrow {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent);
+    }
+    .proj-count { font-family: var(--sans); font-size: 0.72rem; color: var(--light); }
+    .proj-stage { flex: 1; }
+    .proj-stage h3 {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 0.5rem; line-height: 1.25;
+    }
+    .proj-stage h3 a { color: var(--ink); text-decoration: none; border-bottom: 1px solid #f2cfe0; }
+    .proj-stage h3 a:hover { color: var(--accent); }
+    .proj-stage .tag {
+      display: inline-block;
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      color: var(--accent); background: rgba(196,77,123,0.09);
+      border: 1px solid rgba(196,77,123,0.22); border-radius: 3px;
+      padding: 0.08rem 0.4rem; letter-spacing: 0.03em; text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .proj-stage p { font-size: 0.85rem; line-height: 1.55; color: var(--mid); }
+    .proj-nav {
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid #f2cfe0;
+    }
+    .proj-arrow {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; color: var(--accent); line-height: 1;
+      padding: 0.2rem 0.4rem; border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .proj-arrow:hover { background: rgba(196,77,123,0.1); }
+    .proj-dots { display: flex; gap: 0.45rem; }
+    .proj-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #eabcd4; cursor: pointer; border: none; padding: 0;
+      transition: background 0.15s;
+    }
+    .proj-dot.active { background: var(--accent); }
+
+    /* ── Publications card (bottom-right) ── */
+    .q-pub-wrap { display: flex; align-items: center; justify-content: center; }
+    .pub-card {
+      background: var(--pub-cream);
+      border: 1px solid #ecdcbf;
+      border-radius: 12px;
+      padding: 1.8rem 2rem 1.5rem;
+      max-width: 30rem; width: 100%;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: var(--ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .pub-card:hover {
+      transform: translateY(-3px);
+      background: #fbf1dd;
+      box-shadow: 0 14px 34px -14px rgba(150, 120, 40, 0.35);
+    }
+    .pub-card-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .pub-eyebrow {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #b07d1a;
+    }
+    .pub-scholar { font-family: var(--sans); font-size: 0.72rem; color: #b07d1a; font-weight: 600; }
+    .pub-item { padding: 0.55rem 0; border-bottom: 1px solid #ecdcbf; }
+    .pub-item:first-of-type { padding-top: 0; }
+    .pub-year { font-family: var(--sans); font-size: 0.66rem; font-weight: 600; color: var(--light); margin-right: 0.4rem; }
+    .pub-title { font-style: italic; font-weight: 500; font-size: 0.82rem; }
+    .pub-venue { display: block; font-family: var(--sans); font-size: 0.7rem; color: var(--mid); margin-top: 0.15rem; }
+    .pub-cta {
+      font-family: var(--sans); font-size: 0.82rem; font-weight: 600; color: #b07d1a;
+      margin-top: 1rem;
     }
 
-    /* ── Footer ── */
-    footer {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--light);
-      border-top: 1px solid var(--rule);
-      padding-top: 1.5rem;
-      margin-top: 4rem;
+    /* ── Centered page header (above the axis grid) ── */
+    .page-head {
+      text-align: center;
+      max-width: 1500px; margin: 0 auto 2.4rem;
+      padding: 2.5rem 1rem 0;
+    }
+    .page-head h1 {
+      font-family: var(--display);
+      font-size: 2.6rem; font-weight: 600; letter-spacing: -0.02em;
+      line-height: 1.05; color: var(--ink); margin-bottom: 0.5rem;
+    }
+    .page-head .tagline {
+      font-family: var(--sans); font-size: 0.74rem; font-weight: 600;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.09em;
     }
 
-    footer a {
-      color: var(--light);
+    /* ── Bio card (top-left, sage green) with circular photo ── */
+    .q-bio-wrap { display: flex; align-items: center; justify-content: center; }
+    .bio-card {
+      background: var(--bio-green);
+      border: 1px solid #cfe2c8;
+      border-radius: 12px;
+      padding: 1.9rem 2rem;
+      max-width: 30rem; width: 100%;
+      display: flex; flex-direction: column;
     }
+    .bio-photo {
+      width: 78px; height: 78px; border-radius: 50%;
+      object-fit: cover; object-position: center;
+      border: 2px solid #cfe2c8; margin: 0 auto 1.2rem;
+      display: block;
+    }
+    .bio-card p {
+      font-size: 0.84rem; line-height: 1.6; color: var(--mid); margin-bottom: 0.7rem;
+    }
+    .bio-card p:last-child { margin-bottom: 0; }
+    .bio-card strong { color: var(--ink); font-weight: 600; }
+    .bio-card a { color: var(--link); }
 
-    /* ── Responsive ── */
+    /* ── Responsive: stack on mobile ── */
+    @media (max-width: 860px) {
+      .plane { min-height: 0; }
+      .grid { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
+      .grid > .quad { padding: 1.6rem 0.4rem !important; border-bottom: 2px solid var(--axis); }
+      .grid > .quad:last-child { border-bottom: none; }
+      .q-baseline { padding: 1.6rem 0.4rem !important; }
+      .axis-v, .axis-h { display: none; }
+      .q-baseline h2 { font-size: 2.6rem; }
+    }
     @media (max-width: 520px) {
-      .site-header {
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-
-      .site-header img {
-        width: 90px;
-        height: 90px;
-      }
-
-      .header-text h1 {
-        font-size: 1.5rem;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+      body { padding: 1rem; }
+      .quad { padding: 1.4rem; }
+      .id-top { flex-direction: row; }
+      .id-top img { width: 84px; height: 112px; }
+      .id-name h1 { font-size: 1.6rem; }
+      .foot { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrapper">
-
-    <!-- ── HEADER ── -->
-    <header class="site-header">
-      <img src="images/profile.jpg" alt="Meredith Bouvier" />
-      <div class="header-text">
-        <h1>Meredith Bouvier</h1>
-        <div class="tagline">Education Researcher &middot; Computational Methods &middot; <span style="white-space:nowrap">Age-Appropriate AI</span></div>
-      </div>
+  <header class="page-head">
+    <h1>Meredith Bouvier</h1>
+    <div class="tagline">Education Researcher &middot; Computational Methods &middot; Age&#8209;Appropriate AI</div>
   </header>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="plane">
+  <span class="axis-v"></span><span class="axis-h"></span>
+  <main class="grid">
 
-  <!-- ── ABOUT ── -->
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I am a computational researcher studying how AI and platform systems shape the
-      lives of children — in classrooms, at home, in games, and in their interactions
-      with increasingly capable AI tools. I use machine-learning-assisted text analysis,
-      topic modeling, digital trace data, and survey research to understand how these
-      systems behave in practice, how they can be measured, and how they can be made
-      safer for the people most affected by them. Increasingly I don't only study these
-      questions but build working prototypes that answer them: deployable systems that
-      demonstrate what developmentally grounded, child-centered technology can be.
-    </p>
-    <p>
-      Much of my work centers on a question that matters more as AI systems reach younger
-      users: how do we design and govern technologies built for or used by children, so
-      that they support healthy development rather than exploit attention, data, or trust?
-      I am especially interested in age-appropriate design, the gap between what platforms
-      claim and what they do, and surfacing the knowledge of children, parents, and
-      educators who are rarely consulted in the systems making decisions about their
-      digital lives.
-    </p>
-    <p>
-      I am Co-founder and Chief Research Officer of the
-      <a href="https://classtechtransparency.org" target="_blank">Classroom Tech
-        Transparency Project</a>, where I build privacy-preserving tools and computational
-      methods for understanding how digital systems are used by children across schools
-      and households. I recently completed my PhD at Penn State.
-    </p>
-    <p>
-      My background is non-linear in ways I consider an asset. I hold mathematics
-      degrees from Duke University and Columbia Teachers College, and before turning to
-      computational research I taught mathematics to refugee and immigrant students in
-      New York City, lived and taught abroad, and held research positions at the World
-      Bank, UNESCO IIEP, OECD, and the Global Partnership for Education.
-    </p>
-    <p>
-      Outside of work, I swim competitively, bike across countries, and dig in the dirt
-      with my two bilingual boys.
-    </p>
-    <p>
-      My methods are computational: Python and SQL pipelines, LLM-assisted analysis,
-      BERTopic, and digital trace data. CV available upon request at
-      <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
-    </p>
-  </section>
-
-  <!-- ── PUBLICATIONS ── -->
-  <section id="publications">
-    <h2>Selected Publications</h2>
-    <ul class="pub-list">
-
-      <li>
-        <span class="year">2026</span>
-        <strong class="title">
-          <a href="https://doi.org/10.1007/s42438-026-00659-z" target="_blank">"Student Voice, Practitioner Knowledge,
-            and a Disappearing EdTech Review Archive"</a>
-        </strong><br>
-        <span class="venue">Commentary in <em>Postdigital Science and Education</em></span><br>
-        <span class="venue">
-          <a href="https://osf.io/ehbfv/overview" target="_blank">OSF</a> &middot;
-          <a href="https://github.com/merrybouv/common-sense-review-archive" target="_blank">GitHub</a>
-        </span>
-      </li>
-
-      <li>
-        <span class="year">2026</span>
-        <strong class="title">
-          "What a Research Field Cannot Know: Platform Governance and the Limits of K&ndash;12 EdTech Scholarship"
-        </strong>
-        <span class="status">under review</span><br>
-        <span class="venue">Research study submitted to <em>British Journal of Educational Technology</em></span><br>
-        <span class="venue">
-          <a href="https://osf.io/j74xv/overview" target="_blank">OSF</a> &middot;
-          <a href="https://github.com/merrybouv/edtech-bibliometric-2026" target="_blank">GitHub</a>
-        </span>
-      </li>
-
-      <li>
-        <span class="year">2026</span>
-        <strong class="title">
-          "What Parents and Teachers Report: A Descriptive Survey of K&ndash;12 EdTech Concerns"
-        </strong>
-        <span class="status">in preparation</span><br>
-        <span class="venue">CTTP Working Paper</span>
-      </li>
-
-      <li>
-        <span class="year">2025</span>
-        <strong class="title">
-          <a href="https://doi.org/10.1108/978-1-83662-992-420251005" target="_blank">"Teacher Collectives and the
-            State: Conflict, Cooperation and Cooptation"</a>
-        </strong><br>
-        <span class="venue">
-          In G. K. LeTendre, J. B. Helgetun, H. Woo, &amp; S. Ikoma (Eds.),
-          <em>The Teacher and the State: A Comparative Analysis of Nordic and East Asian Nations</em>.
-          Emerald Publishing. (with Y. E. Zhang &amp; A. Kyaw)
-        </span>
-      </li>
-
-      <li>
-        <span class="year">2023</span>
-        <strong class="title">
-          <a href="https://doi.org/10.26209/RPVOL2ISS1PP227" target="_blank">
-            "Distance Learning and Online Coordination of Service in Pennsylvania's Rural School Districts"
-          </a>
-        </strong><br>
-        <span class="venue">
-          <em>Rural Policy: The Research Bulletin of the Center for Rural Pennsylvania</em>, 2(1).
-          (with G. K. LeTendre, E. Schooling, H. Woo, &amp; J. Almes; published as Meredith Bannon)
-        </span>
-      </li>
-
-    </ul>
-    <p style="font-family: var(--sans); font-size: 0.85rem; color: var(--mid); margin-top: 1.25rem;">
-      Some additional publications are listed on <a href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en"
-        target="_blank">Google Scholar</a>.
-      For a full list including policy reports, working papers, and grey literature,
-      request my CV at <a href="mailto:merrybouv@proton.me">merrybouv@proton.me</a>.
-    </p>
-  </section>
-
-  <!-- ── PROJECTS ── -->
-  <section id="projects">
-    <h2>Current Projects</h2>
-
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Baseline</h3>
-        <span class="project-tag">live demo</span>
+    <!-- ══ TOP-LEFT: bio card (sage green) ══ -->
+    <div class="quad q-bio-wrap">
+      <div class="bio-card">
+        <img class="bio-photo" src="images/profile.jpg" alt="Meredith Bouvier" />
+        <p>
+          I am a computational researcher studying how AI and platform systems shape the
+          lives of children, in classrooms, at home, in games, and in their interactions
+          with increasingly capable AI tools. Increasingly I don't only study these
+          questions but build working prototypes that answer them.
+        </p>
+        <p>
+          Before computational research I taught mathematics to refugee and immigrant students in New York City and held
+          research positions at the World Bank, UNESCO IIEP, OECD, and the Global
+          Partnership for Education. I hold a PhD in lifelong learning from Penn State, and masters and bachelors in math from Columbia Teachers
+          College and Duke. Outside work: I swim competitively, bike across countries, and dig in the dirt with my two bilingual boys.</p>
       </div>
-      <p>
-        A developmental framework and live demo for how AI should respond to minors.
-        Baseline conditions AI responses on a <em>declared</em> developmental band —
-        never inferred, no age estimation — and is scoped to institutional, in-school
-        deployment. Its core commitment is that the safety-critical decisions live in
-        inspectable code rather than the model's weights, and that the tool is openly a
-        learning instrument, not a private confidant. The demo shows a general AI
-        response side by side with the framework-conditioned one, with each of the
-        framework's decisions made visible.
-      </p>
-      <p class="project-collab">
-        Independent project &middot;
-        <a href="https://baselineframework.dev" target="_blank">baselineframework.dev</a> &middot;
-        <a href="https://github.com/merrybouv/Baseline" target="_blank">GitHub</a>
-      </p>
     </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Classroom Tech Transparency Project (CTTP)</h3>
-        <span class="project-tag">in beta</span>
-      </div>
-      <p>
-        CTTP is a privacy-first research and tools organization that helps parents and
-        caregivers understand the technology used in their children's classrooms — what
-        it surfaces, how it behaves, and how its use compares across schools and
-        households. Co-founded with parent advocate Joanna Houston, CTTP has attracted
-        interest from multiple national news outlets ahead of its public launch.
-      </p>
-      <ul class="tool-list">
-        <li>
-          <strong>ClickBelow</strong> <em>(live)</em> — uses Google Takeout exports,
-          combined with school bell schedules, to surface the YouTube videos a child's
-          account accessed during instructional time. Enables evidence-based conversations
-          with teachers and schools about platform use and content exposure.
-        </li>
-        <li>
-          <strong>EdTech Concern Explorer</strong> <em>(in development)</em> — a
-          searchable interface into a curated 10-year corpus of Reddit discourse (2014&ndash;2024)
-          from parents, teachers, and students. Search by platform or concern type and
-          read what real families, educators, and students are saying about technology
-          in school.
-        </li>
-        <li>
-          <strong>What Parents &amp; Teachers Report</strong> <em>(live)</em> — a
-          participatory data platform built from CTTP's original survey research.
-          Parents and educators can contribute their experiences and see how their
-          responses compare to the growing aggregate.
-        </li>
-        <li>
-          <strong>FERPA Request Tracker</strong> <em>(in development)</em> — generates
-          customized FERPA request letters naming specific EdTech platforms, tracks the
-          legally required 45-day district response window, and sends follow-up and
-          escalation letters automatically.
-        </li>
-      </ul>
-      <p class="project-collab">
-        Co-founded with Joanna Houston &middot;
-        <a href="https://classtechtransparency.org" target="_blank">classtechtransparency.org</a>
-      </p>
+    <!-- ══ TOP-RIGHT: Baseline demo (signature card) ══ -->
+    <div class="quad q-baseline-wrap">
+      <a class="demo-card" href="https://baselineframework.dev" target="_blank" rel="noopener">
+        <span class="demo-eyebrow">Live demo</span>
+        <span class="demo-title">Child-appropriate AI Framework</span>
+        <span class="demo-blurb">
+          See how a general AI response compares, side by side, with one conditioned on a
+          child's developmental stage, with the safety decisions made visible.
+        </span>
+        <span class="demo-cta">Try it yourself <span class="arrow">→</span></span>
+        <span class="demo-url">baselineframework.dev</span>
+      </a>
     </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Children Online: A Digital Discourse Corpus</h3>
-        <span class="project-tag">in development</span>
+    <!-- ══ BOTTOM-LEFT: rotating project card ══ -->
+    <div class="quad q-proj-wrap">
+      <div class="proj-card">
+        <div class="proj-card-head">
+          <span class="proj-eyebrow">Projects</span>
+          <span class="proj-count"><span id="projNum">1</span> / 3</span>
+        </div>
+
+        <div class="proj-stage" id="projStage"><!-- filled by JS --></div>
+
+        <div class="proj-nav">
+          <button class="proj-arrow" id="projPrev" aria-label="Previous project">&larr;</button>
+          <div class="proj-dots" id="projDots"></div>
+          <button class="proj-arrow" id="projNext" aria-label="Next project">&rarr;</button>
+        </div>
       </div>
-      <p>
-        A computational corpus mapping public discourse on children's digital
-        environments beyond the classroom. Drawing on parenting, gaming, and child-safety
-        communities, it uses topic modeling and large-scale text analysis to surface how
-        the public understands online risks to children — age-inappropriate content,
-        gaming platform design, AI companions, online predation, and the governance gaps
-        that allow harm to persist. Themes are derived empirically from the data rather
-        than imposed in advance.
-      </p>
-      <p>
-        A companion bibliometric study examines whether the research literature on
-        children and gaming centers platform accountability or deflects responsibility
-        onto individual children and families.
-      </p>
-      <p class="project-collab">
-        Independent research
-      </p>
     </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Apprenti</h3>
-        <span class="project-tag">prototype</span>
-      </div>
-      <p>
-        An offline-first, AI-powered career exploration tool for students. Apprenti
-        generates personalized, skill-based missions that connect classroom learning
-        to real-world work — without tracking, without data collection, and without
-        requiring school infrastructure.
-      </p>
-      <p class="project-collab">
-        Independent research prototype
-      </p>
+    <!-- ══ BOTTOM-RIGHT: publications → scholar card ══ -->
+    <div class="quad q-pub-wrap">
+      <a class="pub-card" href="https://scholar.google.com/citations?user=VgxCVVAAAAAJ&hl=en" target="_blank" rel="noopener">
+        <div class="pub-card-head">
+          <span class="pub-eyebrow">Selected Publications</span>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2026</span>
+          <span class="pub-title">"Student Voice, Practitioner Knowledge, and a Disappearing EdTech Review Archive"</span>
+          <span class="pub-venue">Commentary in <em>Postdigital Science and Education</em></span>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2025</span>
+          <span class="pub-title">"Teacher Collectives and the State: Conflict, Cooperation and Cooptation"</span>
+          <span class="pub-venue">In <em>The Teacher and the State</em> (Emerald)</span>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <span class="pub-title">"Distance Learning and Online Coordination of Service in Pennsylvania's Rural School Districts"</span>
+          <span class="pub-venue"><em>Rural Policy</em>, 2(1) &middot; as Meredith Bannon</span>
+        </div>
+
+        <span class="pub-cta">More on Google Scholar &middot; full CV on request &rarr;</span>
+
+      </a>
     </div>
 
-  </section>
+  </main>
+  </div>
 
-  <!-- ── CONTACT ── -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Interested in research collaborations or applied AI and child-safety work? Reach out below.</p>
-    <ul class="social-links">
-      <li><a href="mailto:merrybouv@proton.me">Email</a></li>
-      <li><a href="https://github.com/merrybouv" target="_blank">GitHub</a></li>
-      <li><a href="https://orcid.org/0009-0009-0978-5231" target="_blank">ORCID</a></li>
-    </ul>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer>
-    &copy; Meredith Bouvier 2025&ndash;<span id="yr"></span>.
+  <!-- ══ Footer contact ══ -->
+  <footer class="foot">
+    <span>&copy; Meredith Bouvier 2025&ndash;<span id="yr"></span></span>
+    <span class="foot-links">
+      <a href="mailto:merrybouv@proton.me">Email</a>
+      <a href="https://github.com/merrybouv" target="_blank">GitHub</a>
+      <a href="https://orcid.org/0009-0009-0978-5231" target="_blank">ORCID</a>
+    </span>
   </footer>
 
-  </div>
+  <script>
+    const projects = [
+      { title: "Classroom Tech Transparency Project", url: "https://classtechtransparency.org",
+        tag: "in beta",
+        desc: "I am the Co-Founder and Chief Research Officer of CTTP, which offers privacy-first research and tools to help parents understand the technology used in their children's classrooms. Flagship tool is ClickBelow (analyzes YouTube accessed during instruction). Co-founded with Joanna Houston." },
+      { title: "Children Online: A Digital Discourse Corpus", url: null,
+        tag: "in development",
+        desc: "I am using topic modeling and large-scale text analysis to map how the public understands online risks to children (content, gaming design, AI companions, predation, and governance gaps) with a companion bibliometric study on accountability." },
+      { title: "Apprenti", url: null,
+        tag: "prototype",
+        desc: "I am building an offline-first, AI-powered career exploration tool that connects classroom learning to real-world work without tracking or data collection." }
+    ];
+
+    let projIdx = 0;
+    const stage = document.getElementById('projStage');
+    const dotsWrap = document.getElementById('projDots');
+    const numEl = document.getElementById('projNum');
+
+    function renderProj(i) {
+      const p = projects[i];
+      const titleHtml = p.url
+        ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
+        : p.title;
+      stage.innerHTML = `<h3>${titleHtml}</h3><span class="tag">${p.tag}</span><p>${p.desc}</p>`;
+      numEl.textContent = (i + 1);
+      [...dotsWrap.children].forEach((d, di) => d.classList.toggle('active', di === i));
+    }
+
+    projects.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'proj-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Project ' + (i + 1));
+      dot.addEventListener('click', () => { projIdx = i; renderProj(projIdx); });
+      dotsWrap.appendChild(dot);
+    });
+
+    document.getElementById('projPrev').addEventListener('click', () => {
+      projIdx = (projIdx - 1 + projects.length) % projects.length; renderProj(projIdx);
+    });
+    document.getElementById('projNext').addEventListener('click', () => {
+      projIdx = (projIdx + 1) % projects.length; renderProj(projIdx);
+    });
+
+    renderProj(0);
+  </script>
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
