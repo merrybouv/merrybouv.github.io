@@ -11,7 +11,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #fdfbee;
+      --bg:      #ffffff;
       --ink:     #1c1a1a;
       --mid:     #4a4545;
       --light:   #9e9a8a;
@@ -24,7 +24,7 @@
       --proj-pink: #fdeef4;      /* light pink, the projects card */
       --pub-cream: #fdf7ea;      /* warm, the publications card */
       --bio-green: #eaf3e6;      /* soft sage, the bio card */
-      --card:    #fffdf5;
+      --card:    #ffffff;
       --card-pink: #f8f0ff;
       --serif:   'Playfair Display', Georgia, serif;
       --display: 'Fraunces', Georgia, serif;
@@ -387,6 +387,20 @@
     .bio-card strong { color: var(--ink); font-weight: 600; }
     .bio-card a { color: var(--link); }
 
+    /* ── Cursor sparkle trail ── */
+    .sparkle {
+      position: fixed; z-index: 9999; pointer-events: none;
+      width: var(--s); height: var(--s);
+      background: var(--c);
+      clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+      transform: translate(-50%, -50%);
+      animation: sparkle-fade 700ms ease-out forwards;
+    }
+    @keyframes sparkle-fade {
+      0%   { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2) rotate(120deg); }
+    }
+
     /* ── Responsive: stack on mobile ── */
     @media (max-width: 860px) {
       .plane { min-height: 0; }
@@ -413,7 +427,7 @@
 <body>
   <header class="page-head">
     <h1>Meredith Bouvier</h1>
-    <div class="tagline">Education Researcher &middot; Computational Methods &middot; Age&#8209;Appropriate AI</div>
+    <div class="tagline">Data &middot; Research &middot; Ethical Tech</div>
   </header>
 
   <div class="plane">
@@ -425,16 +439,19 @@
       <div class="bio-card">
         <img class="bio-photo" src="images/profile.jpg" alt="Meredith Bouvier" />
         <p>
-          I am a computational researcher studying how AI and platform systems shape the
-          lives of children, in classrooms, at home, in games, and in their interactions
-          with increasingly capable AI tools. Increasingly I don't only study these
-          questions but build working prototypes that answer them.
+          I work with data, with partners, and I build things. My research looks at how
+          AI and platform systems shape the lives of children, in classrooms, at home, in
+          games, and in their interactions with AI tools. I also build working prototypes
+          that answer those questions.
         </p>
         <p>
-          Before computational research I taught mathematics to refugee and immigrant students in New York City and held
-          research positions at the World Bank, UNESCO IIEP, OECD, and the Global
-          Partnership for Education. I hold a PhD in lifelong learning from Penn State, and masters and bachelors in math from Columbia Teachers
-          College and Duke. Outside work: I swim competitively, bike across countries, and dig in the dirt with my two bilingual boys.</p>
+          Before that I taught mathematics to refugee and immigrant students in New York City and held
+          research positions at the World Bank, UNESCO IIEP, the OECD, and the Global
+          Partnership for Education. I hold a PhD in adult and lifelong learning from Penn State,
+          a master's in mathematics education from Teachers College, Columbia, and a bachelor's in
+          mathematics from Duke. I'm based near Bordeaux, France. Outside work: I swim
+          competitively, bike across countries, and dig in the dirt with my two bilingual boys.
+        </p>
       </div>
     </div>
 
@@ -508,6 +525,7 @@
     <span>&copy; Meredith Bouvier 2025&ndash;<span id="yr"></span></span>
     <span class="foot-links">
       <a href="mailto:merrybouv@proton.me">Email</a>
+      <a href="https://www.linkedin.com/in/merrybouv/" target="_blank">LinkedIn</a>
       <a href="https://github.com/merrybouv" target="_blank">GitHub</a>
       <a href="https://orcid.org/0009-0009-0978-5231" target="_blank">ORCID</a>
     </span>
@@ -560,6 +578,30 @@
   </script>
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Cursor sparkle trail: skipped on touch screens and for reduced-motion users
+    (function () {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const colors = ['#c44d7b', '#6b3fa0', '#3a6db0', '#b07d1a', '#7fae6e'];
+      let last = 0;
+      document.addEventListener('mousemove', (e) => {
+        const now = performance.now();
+        if (now - last < 35) return;
+        last = now;
+        const sp = document.createElement('span');
+        sp.className = 'sparkle';
+        sp.style.left = e.clientX + 'px';
+        sp.style.top = e.clientY + 'px';
+        sp.style.setProperty('--s', (8 + Math.random() * 10) + 'px');
+        sp.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+        sp.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
+        sp.style.setProperty('--dy', (10 + Math.random() * 25) + 'px');
+        document.body.appendChild(sp);
+        sp.addEventListener('animationend', () => sp.remove());
+      });
+    })();
   </script>
 </body>
 </html>
